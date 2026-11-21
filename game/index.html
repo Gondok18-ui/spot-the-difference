@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twinscapes — Spot the Difference</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◐</span>
+      <div>
+        <h1>TWINSCAPES</h1>
+        <p>Spot the difference — two panels, one sharp eye.</p>
+      </div>
+    </div>
+    <div class="hud">
+      <div class="hud-box">
+        <span class="hud-label">Level</span>
+        <strong id="levelName">Level 1 · Sunny Cove</strong>
+      </div>
+      <div class="hud-box counter">
+        <span class="hud-label">Still hidden</span>
+        <strong id="remainingCount">5</strong>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">Found</span>
+        <strong id="foundCount">0</strong>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">Score</span>
+        <strong id="score">0</strong>
+      </div>
+      <button id="hintBtn" class="hint-btn" type="button">💡 Hint (<span id="hintCount">3</span>)</button>
+    </div>
+  </header>
+
+  <div class="timer-row">
+    <span class="timer-caption">Time</span>
+    <div class="timer-track"><div id="timerFill"></div></div>
+    <strong id="timerText">120s</strong>
+  </div>
+
+  <main class="stage">
+    <figure class="panel-wrap">
+      <canvas id="leftCanvas" width="560" height="420"></canvas>
+      <figcaption>ORIGINAL</figcaption>
+    </figure>
+    <figure class="panel-wrap">
+      <canvas id="rightCanvas" width="560" height="420"></canvas>
+      <figcaption>SPOT THE CHANGES</figcaption>
+    </figure>
+
+    <section id="titleScreen" class="overlay show">
+      <h2>Twinscapes</h2>
+      <p>Every scene is drawn twice — and the second panel hides a few quiet changes:
+         a colour swapped, a boat that lost its sail, a star gone missing.</p>
+      <p>Click a difference on either panel to mark it on both. Wrong clicks cost 5 seconds.
+         Three scenes, more differences and less mercy each time.</p>
+      <button id="playBtn" class="big-btn" type="button">Start hunting</button>
+      <p class="keys">Mouse to click · H for a hint · P to pause</p>
+    </section>
+
+    <section id="levelScreen" class="overlay">
+      <h2>Scene cleared!</h2>
+      <p>Every difference found. The next scene hides more of them.</p>
+      <button id="nextBtn" class="big-btn" type="button">Next scene</button>
+    </section>
+
+    <section id="endScreen" class="overlay">
+      <h2 id="endTitle">All scenes cleared!</h2>
+      <p id="endText"></p>
+      <p class="final-line">Final score: <strong id="finalScore">0</strong></p>
+      <button id="retryBtn" class="big-btn" type="button">Play again</button>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Twinscapes — an original spot-the-difference game. Scenes are drawn in code, twice each;
+    the changes live only in the second drawing. No images, no network, just a sharp eye.
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
